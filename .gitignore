@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Local Dev Artifacts & Screenshots
+screenshot-*.png
+test_work.png
+*.log
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
