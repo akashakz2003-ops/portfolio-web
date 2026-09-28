@@ -1417,6 +1417,8 @@ body {
   border-top: 1px solid var(--border-light);
   position: relative;
   z-index: 10;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .contact-layout {
@@ -1424,17 +1426,26 @@ body {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 80px;
   align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.contact-layout > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .contact-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
   font-weight: 900;
   letter-spacing: 0.03em;
   line-height: 1.05;
   text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 24px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-subtext {
@@ -1450,6 +1461,8 @@ body {
   flex-direction: column;
   gap: 16px;
   margin-bottom: 40px;
+  width: 100%;
+  min-width: 0;
 }
 
 .channel-link {
@@ -1463,6 +1476,9 @@ body {
   text-decoration: none;
   color: var(--text-primary);
   transition: all var(--transition-fast);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .channel-link:hover {
@@ -1476,6 +1492,7 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  flex-shrink: 0;
 }
 
 .channel-val {
@@ -1485,6 +1502,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+}
+
+.channel-val span {
+  word-break: break-all;
 }
 
 /* Interactive Direct Inquiry Form */
@@ -1493,6 +1515,10 @@ body {
   border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 40px;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .inquiry-form-card h3 {
@@ -1520,6 +1546,8 @@ body {
 
 .form-input, .form-textarea, .form-select {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: rgba(8, 8, 8, 0.7);
   border: 1px solid var(--border-light);
   border-radius: 4px;
@@ -1543,6 +1571,8 @@ body {
 
 .form-submit-btn {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 16px;
   font-family: var(--font-sans);
   font-size: 11px;
@@ -1559,6 +1589,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  white-space: normal;
+  text-align: center;
 }
 
 .form-submit-btn:hover {
@@ -1810,6 +1842,14 @@ body {
    Desktop, Tablet, Mobile Optimization
    ========================================================================== */
 
+/* Laptops & Tablets (1150px and below) */
+@media (max-width: 1150px) {
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 48px;
+  }
+}
+
 /* Tablet (1024px and below) */
 @media (max-width: 1024px) {
   .nav-header {
@@ -1826,8 +1866,8 @@ body {
   }
   
   .about-grid, .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    grid-template-columns: 1fr !important;
+    gap: 48px;
   }
 }
 
@@ -1911,5 +1951,114 @@ body {
 
   .modal-body {
     padding: 24px 20px;
+  }
+
+  /* Contact Section Mobile Hardening */
+  .section-contact {
+    padding: 90px 0 60px;
+    overflow-x: hidden;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    width: 100%;
+  }
+
+  .contact-heading {
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact-subtext {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  .contact-channels {
+    gap: 12px;
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  .channel-link {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .channel-val {
+    font-size: 12px;
+    min-width: 0;
+  }
+
+  .channel-val span {
+    word-break: break-all;
+  }
+
+  .inquiry-form-card {
+    padding: 24px 18px;
+    width: 100%;
+    min-width: 0;
+    border-radius: 8px;
+  }
+
+  .inquiry-form-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .form-input, .form-textarea, .form-select {
+    padding: 11px 13px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-submit-btn {
+    padding: 14px 16px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Very Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .channel-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 14px;
+  }
+
+  .channel-type {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .channel-val {
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inquiry-form-card {
+    padding: 20px 14px;
   }
 }
