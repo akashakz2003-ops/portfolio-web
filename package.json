@@ -1,7 +1,8 @@
 {
-  "dependencies": {
-    "@imgly/background-removal-node": "^1.4.5",
-    "potrace": "^2.1.8",
-    "sharp": "^0.35.4"
+  "name": "portfolio-web",
+  "version": "1.0.0",
+  "description": "Akash - AI Content Creator & Visual Artist Portfolio",
+  "scripts": {
+    "start": "node server.js"
   }
 }
