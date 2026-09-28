@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 10. Direct Inquiry Form Handler ---
+  // --- 10. Direct Inquiry Form Handler (WhatsApp Integration) ---
   const inquiryForm = document.getElementById('inquiryForm');
   const formStatus = document.getElementById('formStatus');
 
@@ -492,26 +492,43 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       sound.playChime();
 
-      const submitBtn = inquiryForm.querySelector('.form-submit-btn');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'TRANSMITTING INQUIRY...';
+      const nameInput = document.getElementById('userName');
+      const emailInput = document.getElementById('userEmail');
+      const projectTypeInput = document.getElementById('projectType');
+      const messageInput = document.getElementById('userMessage');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const projectType = projectTypeInput ? projectTypeInput.value : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+
+      // Format WhatsApp message with all client details
+      const whatsappText = `*New Portfolio Inquiry* 🎬\n\n` +
+        `👤 *Client Name:* ${name}\n` +
+        `✉️ *Email Address:* ${email}\n` +
+        `🎯 *Project Category:* ${projectType}\n\n` +
+        `📝 *Project Vision & Details:*\n${message}\n\n` +
+        `— Sent via Akash Portfolio`;
+
+      const whatsappUrl = `https://wa.me/918129274356?text=${encodeURIComponent(whatsappText)}`;
+
+      // Open WhatsApp directly
+      window.open(whatsappUrl, '_blank');
+
+      if (formStatus) {
+        formStatus.classList.add('success');
+        formStatus.innerHTML = '✓ REDIRECTING TO WHATSAPP (+91 81292 74356)...';
       }
 
-      setTimeout(() => {
-        if (formStatus) {
-          formStatus.classList.add('success');
-          formStatus.innerHTML = '✓ INQUIRY RECEIVED. AKASH WILL RESPOND WITHIN 24 HOURS.';
-        }
-        inquiryForm.reset();
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'INQUIRY SENT';
-          setTimeout(() => {
-            submitBtn.textContent = 'SEND MESSAGE →';
-          }, 4000);
-        }
-      }, 1200);
+      const submitBtn = inquiryForm.querySelector('.form-submit-btn');
+      if (submitBtn) {
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>OPENING WHATSAPP...</span>';
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnHtml;
+          inquiryForm.reset();
+        }, 3000);
+      }
     });
   }
 
