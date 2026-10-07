@@ -274,13 +274,14 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'cinematic',
       category: 'AI Cinematic Videos',
-      title: 'NEO-TOKYO: 2099',
-      year: '2026 / Spec Concept',
-      client: 'Autonomous Cinematic Lab',
-      image: 'assets/images/project-cinematic.jpg',
-      description: 'A high-concept cyberpunk narrative piece exploring human identity within synthetic metropolitan environments. Directed with anamorphic lens simulation, rain-slicked chiaroscuro illumination, and photorealistic 35mm film grain.',
-      tools: ['Runway Gen-3 Alpha', 'Midjourney v6.1', 'DaVinci Resolve Studio', 'Suno Audio'],
-      promptConcept: 'Cinematic ultra-realistic film still, sci-fi noir aesthetic, dramatic anamorphic warm lens flare against deep shadows, moody atmospheric haze, 35mm film texture, high-end film production, luxury styling, 8k.'
+      title: 'JABAL SALALAH: CITRUS',
+      year: '2026 / Cinematic Commercial',
+      client: 'Jabal Salalah Beverages',
+      image: 'assets/images/project-jabal.jpg',
+      video: 'videos/jabal%20salala%201.mov',
+      description: 'High-energy cinematic 3D beverage commercial for Jabal Salalah Citrus. Engineered with electric neon lime rim illumination, photorealistic water droplet physics, sub-zero vapor atmosphere, and textured volcanic rock terrain.',
+      tools: ['Runway Gen-3 Alpha', 'ComfyUI / LoRA', 'Cinema 4D', 'DaVinci Resolve Studio'],
+      promptConcept: 'Cinematic 3D commercial of an ice-cold Jabal Salalah citrus carbonated beverage can, glowing neon lime green rim light against matte black swirling wave graphics, dripping condensation water droplets, dense vapor smoke, wet dark volcanic pedestal, 8k ultra-detailed.'
     },
     {
       id: 'advertising',
