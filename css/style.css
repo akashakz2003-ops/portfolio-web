@@ -780,7 +780,7 @@ body {
    Editorial showcase with large visual cards, filter tabs, hover interactions
    ========================================================================== */
 .section-work {
-  padding: 140px 0 160px;
+  padding: 120px 0 120px;
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-light);
   position: relative;
@@ -1073,7 +1073,7 @@ body {
    GOOGLE DRIVE ARCHIVE CALLOUT
    ========================================================================== */
 .work-drive-cta {
-  margin-top: 64px;
+  margin-top: 50px;
   width: 100%;
   scroll-margin-top: 100px;
 }
@@ -2030,6 +2030,24 @@ body {
 
   .modal-body {
     padding: 24px 20px;
+  }
+
+  /* Work Section Mobile Spacing */
+  .section-work {
+    padding: 80px 0;
+  }
+
+  .work-header {
+    margin-bottom: 36px;
+    gap: 20px;
+  }
+
+  .projects-grid {
+    gap: 32px;
+  }
+
+  .work-drive-cta {
+    margin-top: 32px;
   }
 
   /* Contact Section Mobile Hardening */

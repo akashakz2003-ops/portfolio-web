@@ -308,17 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
       promptConcept: 'Commercial 360-degree product turntable showcase of modern Red Tape futuristic metallic silver runner sneakers, clean minimalist studio cyclorama with glossy mirror floor reflections, studio lighting, hyper-realistic shoe textures, commercial grade 8k.'
     },
     {
-      id: 'animation',
-      category: 'AI Animation',
-      title: 'IRIDESCENT FLUX',
-      year: '2026 / Digital Installation',
-      client: 'New Media Biennale',
-      image: 'assets/images/project-animation.jpg',
-      description: 'Abstract kinetic sculpture exploring fluid chrome ribbon dynamics in deep space. Complex caustic reflections, spectral prism dispersion, and biomechanical knot topologies designed for large-format gallery projection.',
-      tools: ['TouchDesigner', 'Kling AI', 'Luma Dream Machine', 'After Effects'],
-      promptConcept: 'Abstract iridescent kinetic digital sculpture, flowing liquid chrome cloth simulation, dynamic biomechanical ribbons twisting in deep black space, hyper-realistic reflections and caustics, Octane render 3D art masterpiece.'
-    },
-    {
       id: 'reels',
       category: 'Social Media Reels',
       title: 'MASTER DAMU',
@@ -341,17 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'High-octane cinematic AI viral reel reimagining an iconic disco pop legend performing amidst an electric Kerala crowd. Features retro vehicle choreography, dusty atmospheric sunlight, dynamic crowd energy, and authentic period styling.',
       tools: ['Runway Gen-3 Alpha', 'ComfyUI / LoRA', 'Kling AI', 'DaVinci Resolve Studio'],
       promptConcept: 'Cinematic 35mm film still of a legendary pop star in sparkling black and silver star disco suit dancing in a sunlit dusty Kerala town square, surrounded by cheering crowd, vintage Bajaj Chetak scooters and Enfield bullets, anamorphic warm haze, 4k.'
-    },
-    {
-      id: 'web',
-      category: 'Creative Web Experiences',
-      title: 'GEN ALPHA: TOPOGRAPHY',
-      year: '2026 / Spatial Web',
-      client: 'Museum of Digital Horizons',
-      image: 'assets/images/project-web.jpg',
-      description: 'Interactive spatial WebGL installation blending real-time topography wireframes with obsidian crystal formations. Visitors navigate synthetic 3D landscapes with responsive audio synthesis and interactive gesture controls.',
-      tools: ['Three.js', 'GLSL Custom Shaders', 'Web Audio API', 'GSAP'],
-      promptConcept: 'Generative 3D interactive web landscape, dark ethereal glowing topography wireframe merging with architectural obsidian crystals, dark mode UI overlay, WebGL shaders visual art, futuristic cybernetic museum installation.'
     }
   ];
 
