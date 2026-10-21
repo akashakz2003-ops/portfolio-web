@@ -11,6 +11,7 @@ A luxury editorial portfolio website showcasing cinematic AI visual art, commerc
 - **ABBA: PROUD OUD LEATHER** — High-fashion luxury fragrance commercial for Abba Perfumes. Chiaroscuro lighting, aerosol mist physics, and black marble pedestal staging.
 - **RED TAPE** — Cinematic commercial product visualization for Red Tape luxury lifestyle sneakers featuring 360° rotational turntable choreography.
 - **MASTER DAMU** — Hyper-realistic AI cinematic viral reel reimagining Master Damu in a high-octane Kerala street chase sequence.
+- **PARADISE** — High-octane cinematic AI viral reel reimagining an iconic disco pop legend performing amidst an electric Kerala crowd.
 - **JABAL SALALAH: CITRUS** — High-energy cinematic 3D beverage commercial with neon rim illumination, condensation droplet physics, and volcanic rock staging.
 - **IRIDESCENT FLUX** — Abstract kinetic sculpture exploring fluid chrome ribbon dynamics in deep space.
 - **GEN ALPHA: TOPOGRAPHY** — Interactive spatial WebGL installation blending real-time topography wireframes with obsidian crystal formations.

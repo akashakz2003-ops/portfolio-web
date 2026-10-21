@@ -326,9 +326,21 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Malayalam Pop Culture / Social Viral',
       image: 'assets/images/project-damu.jpg',
       video: 'videos/master%20damu.mp4',
-      description: 'Hyper-realistic AI cinematic viral reel reimagining the iconic character Master Damu in a high-octane Kerala street chase sequence. Engineered with high-fidelity facial consistency, physics-driven clothing dynamics, authentic Indian urban environment, and cinematic handheld tracking.',
+      description: 'Hyper-realistic AI cinematic viral reel bringing the iconic pop-culture character Master Damu to life in a high-octane Kerala street chase sequence. Engineered with high-fidelity facial consistency, physics-driven clothing dynamics, authentic Indian urban environment, and cinematic handheld tracking.',
       tools: ['Runway Gen-3 Alpha', 'Luma Dream Machine', 'ComfyUI / LoRA', 'DaVinci Resolve Studio'],
       promptConcept: 'Cinematic hyper-realistic Malayalam comedy chase sequence, expressive middle-aged Indian man with mustache wearing lungi and mustard shirt running frantically after a red and white KSRTC bus on a sunlit Kerala town street, photorealistic 35mm film grain, 4k.'
+    },
+    {
+      id: 'paradise',
+      category: 'Social Media Reels',
+      title: 'PARADISE',
+      year: '2026 / Viral AI Reel',
+      client: 'Pop Culture / Dance Homage',
+      image: 'assets/images/project-paradise.jpg',
+      video: 'videos/paradise.mp4',
+      description: 'High-octane cinematic AI viral reel reimagining an iconic disco pop legend performing amidst an electric Kerala crowd. Features retro vehicle choreography, dusty atmospheric sunlight, dynamic crowd energy, and authentic period styling.',
+      tools: ['Runway Gen-3 Alpha', 'ComfyUI / LoRA', 'Kling AI', 'DaVinci Resolve Studio'],
+      promptConcept: 'Cinematic 35mm film still of a legendary pop star in sparkling black and silver star disco suit dancing in a sunlit dusty Kerala town square, surrounded by cheering crowd, vintage Bajaj Chetak scooters and Enfield bullets, anamorphic warm haze, 4k.'
     },
     {
       id: 'web',
@@ -389,6 +401,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalTools) modalTools.textContent = project.tools.join(' • ');
     if (modalPrompt) modalPrompt.textContent = `"${project.promptConcept}"`;
 
+    // Toggle Modal Reel Switcher for Social Media Reels
+    const modalReelSwitcher = document.getElementById('modalReelSwitcher');
+    if (modalReelSwitcher) {
+      if (projectId === 'reels' || projectId === 'paradise') {
+        modalReelSwitcher.style.display = 'inline-flex';
+        modalReelSwitcher.querySelectorAll('.reel-tab-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-modal-reel') === projectId);
+        });
+      } else {
+        modalReelSwitcher.style.display = 'none';
+      }
+    }
+
     if (projectModal) {
       projectModal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -410,11 +435,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Open modal on project card click
   document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.reel-tab-btn')) return;
       const pid = card.getAttribute('data-project-id');
       if (pid) openProjectModal(pid);
     });
   });
+
+  // --- 7b. Reel Switcher Handler (Master Damu & Paradise) ---
+  const reelsProjectCard = document.getElementById('reelsProjectCard');
+  const reelCardVideo = document.getElementById('reelCardVideo');
+  const reelCardTitle = document.getElementById('reelCardTitle');
+  const reelCardDesc = document.getElementById('reelCardDesc');
+  const reelCardTags = document.getElementById('reelCardTags');
+  const reelCardYear = document.getElementById('reelCardYear');
+  const modalReelSwitcher = document.getElementById('modalReelSwitcher');
+
+  const reelsDataMap = {
+    reels: projectsData.find(p => p.id === 'reels'),
+    paradise: projectsData.find(p => p.id === 'paradise')
+  };
+
+  function syncReelCard(reelId) {
+    const data = reelsDataMap[reelId];
+    if (!data || !reelsProjectCard) return;
+
+    reelsProjectCard.setAttribute('data-project-id', reelId);
+
+    if (reelCardVideo) {
+      reelCardVideo.src = data.video;
+      reelCardVideo.poster = data.image;
+      reelCardVideo.currentTime = 0;
+      reelCardVideo.play().catch(() => {});
+    }
+
+    if (reelCardTitle) reelCardTitle.textContent = data.title;
+    if (reelCardDesc) reelCardDesc.textContent = data.description;
+    if (reelCardYear) reelCardYear.textContent = '2026';
+
+    if (reelCardTags) {
+      if (reelId === 'reels') {
+        reelCardTags.innerHTML = `
+          <span class="project-tag">AI Cinematic Reel</span>
+          <span class="project-tag">Character Consistency</span>
+          <span class="project-tag">Viral Motion</span>
+        `;
+      } else {
+        reelCardTags.innerHTML = `
+          <span class="project-tag">Viral AI Reel</span>
+          <span class="project-tag">Pop Culture Homage</span>
+          <span class="project-tag">Crowd Choreography</span>
+        `;
+      }
+    }
+
+    // Update active tab styling on card
+    reelsProjectCard.querySelectorAll('.reel-tab-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-reel-id') === reelId);
+    });
+  }
+
+  if (reelsProjectCard) {
+    reelsProjectCard.querySelectorAll('.reel-tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const reelId = btn.getAttribute('data-reel-id');
+        if (reelId) {
+          sound.playClick();
+          syncReelCard(reelId);
+        }
+      });
+    });
+  }
+
+  if (modalReelSwitcher) {
+    modalReelSwitcher.querySelectorAll('.reel-tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = btn.getAttribute('data-modal-reel');
+        if (targetId) {
+          sound.playClick();
+          openProjectModal(targetId);
+          syncReelCard(targetId);
+        }
+      });
+    });
+  }
 
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', closeProjectModal);

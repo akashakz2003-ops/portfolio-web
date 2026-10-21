@@ -314,10 +314,10 @@
           </article>
 
           <!-- 5. Social Media Reels -->
-          <article class="project-card" data-project-id="reels" data-category="Social Media Reels">
+          <article class="project-card" data-project-id="reels" data-category="Social Media Reels" id="reelsProjectCard">
             <div class="project-media-wrap">
               <span class="project-badge-float">VIRAL AI REEL</span>
-              <video class="project-video" src="videos/master%20damu.mp4" poster="assets/images/project-damu.jpg" autoplay loop muted playsinline preload="auto"></video>
+              <video class="project-video" id="reelCardVideo" src="videos/master%20damu.mp4" poster="assets/images/project-damu.jpg" autoplay loop muted playsinline preload="auto"></video>
               <div class="project-action-overlay">
                 <span>VIEW PROJECT</span>
                 <span>&rarr;</span>
@@ -326,11 +326,24 @@
             <div class="project-content">
               <div class="project-meta-row">
                 <span class="project-category">SOCIAL MEDIA REELS</span>
-                <span class="project-year">2026</span>
+                <span class="project-year" id="reelCardYear">2026</span>
               </div>
-              <h3 class="project-title">MASTER DAMU</h3>
-              <p class="project-desc">Hyper-realistic AI cinematic viral reel bringing the iconic pop-culture character Master Damu to life in a high-octane Kerala street chase sequence with dynamic handheld tracking.</p>
-              <div class="project-tags">
+
+              <!-- Reel Switcher: Master Damu & Paradise -->
+              <div class="reel-switcher" role="tablist" aria-label="Select Viral Reel">
+                <button type="button" class="reel-tab-btn active" data-reel-id="reels">
+                  <span>01</span>
+                  <span>MASTER DAMU</span>
+                </button>
+                <button type="button" class="reel-tab-btn" data-reel-id="paradise">
+                  <span>02</span>
+                  <span>PARADISE</span>
+                </button>
+              </div>
+
+              <h3 class="project-title" id="reelCardTitle">MASTER DAMU</h3>
+              <p class="project-desc" id="reelCardDesc">Hyper-realistic AI cinematic viral reel bringing the iconic pop-culture character Master Damu to life in a high-octane Kerala street chase sequence with dynamic handheld tracking.</p>
+              <div class="project-tags" id="reelCardTags">
                 <span class="project-tag">AI Cinematic Reel</span>
                 <span class="project-tag">Character Consistency</span>
                 <span class="project-tag">Viral Motion</span>
@@ -668,6 +681,18 @@
         <div class="modal-meta-bar">
           <span class="project-category" id="modalCategory"></span>
           <span class="project-year" id="modalYear"></span>
+        </div>
+
+        <!-- Reel Modal Switcher (Active for Social Media Reels) -->
+        <div class="modal-reel-switcher" id="modalReelSwitcher" style="display:none;" role="tablist" aria-label="Select Reel">
+          <button type="button" class="reel-tab-btn active" data-modal-reel="reels">
+            <span>01</span>
+            <span>MASTER DAMU</span>
+          </button>
+          <button type="button" class="reel-tab-btn" data-modal-reel="paradise">
+            <span>02</span>
+            <span>PARADISE</span>
+          </button>
         </div>
         <h3 class="modal-title" id="modalTitle"></h3>
         <p class="modal-description" id="modalDesc"></p>
